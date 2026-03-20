@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 0.25rem;
+}
