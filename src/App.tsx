@@ -7,6 +7,12 @@ import {
    faCalendar,
    faArrowUpFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react';
+
+const tabClass =
+   'cursor-pointer rounded-lg py-2 text-black/20 outline-none hover:text-black/40 data-focus:bg-emerald-400/10 data-selected:font-semibold data-selected:text-emerald-400'
+// 'cursor-pointer rounded-lg py-2 text-black/20 outline-none hover:text-black/30 hover:bg-black/5 data-selected:bg-emerald-400/10 data-selected:font-semibold data-selected:text-emerald-400'
+// 'cursor-pointer rounded-lg py-2 text-black/20 outline-none hover:text-black/40 data-focus:bg-black/5 data-[selected]:bg-emerald-400/10 data-selected:font-semibold data-selected:text-emerald-400'
 
 function App() {
    return (
@@ -15,35 +21,40 @@ function App() {
             <span className="text-2xl font-bold">시간표 제작</span>
          </nav>
          <div className="flex flex-1">
-            <aside className="flex">
-               <div className="flex h-full w-22 flex-col gap-1 border-r border-black/10 px-2 py-4">
-                  <button className="cursor-pointer p-2 text-emerald-400">
+            <TabGroup className="flex">
+               <TabList className="flex h-full w-20 flex-col gap-1 border-r border-black/10 p-2">
+                  <Tab className={tabClass}>
                      <FontAwesomeIcon
                         className="text-xl"
                         icon={faBookBookmark}
                      />
-                     <p className="text-sm font-semibold">과목</p>
-                  </button>
-                  <button className="cursor-pointer p-2 text-black/20 hover:text-black/40">
+                     <p className="text-sm">과목</p>
+                  </Tab>
+                  <Tab className={tabClass}>
                      <FontAwesomeIcon className="text-xl" icon={faPaintBrush} />
                      <p className="text-sm">디자인</p>
-                  </button>
-                  <button className="cursor-pointer p-2 text-black/20 hover:text-black/40">
+                  </Tab>
+                  <Tab className={tabClass}>
                      <FontAwesomeIcon className="text-xl" icon={faCalendar} />
                      <p className="text-sm">요일</p>
-                  </button>
-                  <button className="cursor-pointer p-2 text-black/20 hover:text-black/40">
+                  </Tab>
+                  <Tab className={tabClass}>
                      <FontAwesomeIcon
                         className="text-xl"
                         icon={faArrowUpFromBracket}
                      />
                      <p className="text-sm">내보내기</p>
-                  </button>
-               </div>
-               <div className="h-full w-75 border-r border-black/10">
-                  <SubjectsTab />
-               </div>
-            </aside>
+                  </Tab>
+               </TabList>
+               <TabPanels className="h-full w-75 border-r border-black/10">
+                  <TabPanel className="h-full outline-none data-focus:bg-emerald-400/20">
+                     <SubjectsTab />
+                  </TabPanel>
+                  <TabPanel></TabPanel>
+                  <TabPanel></TabPanel>
+                  <TabPanel></TabPanel>
+               </TabPanels>
+            </TabGroup>
             <div className="flex-1"></div>
          </div>
       </div>

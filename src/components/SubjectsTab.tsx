@@ -48,9 +48,9 @@ export default function SubjectsTab() {
                <SubjectListItem />
                <SubjectListItem />
                <SubjectListItem />
-               <div className="w-full cursor-pointer rounded-lg border border-dashed border-black/10 py-2 text-black/20 transition-colors hover:border-emerald-400 hover:bg-emerald-400/10 hover:text-emerald-300">
+               <button className="w-full cursor-pointer rounded-lg border border-dashed border-black/10 py-2 text-black/20 transition-colors hover:border-emerald-400 hover:bg-emerald-400/10 hover:text-emerald-300 focus-visible:border-emerald-400 focus-visible:bg-emerald-400/10 focus-visible:text-emerald-300 outline-none">
                   <p className="text-center">+ 과목 추가</p>
-               </div>
+               </button>
             </div>
          </div>
       </div>
