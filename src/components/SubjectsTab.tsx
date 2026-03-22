@@ -4,6 +4,7 @@ import {
    setTitle,
    setSubtitle1,
    setSubtitle2,
+   addSubject,
    type RootState,
 } from '../../store';
 
@@ -15,6 +16,7 @@ export default function SubjectsTab() {
    const subtitle2 = useSelector(
       (state: RootState) => state.timetable.subtitle2,
    );
+   const subjects = useSelector((state: RootState) => state.subjects);
    const dispatch = useDispatch();
    return (
       <div className="p-4">
@@ -72,10 +74,13 @@ export default function SubjectsTab() {
                과목 목록
             </p>
             <div className="flex flex-col gap-2">
-               <SubjectListItem />
-               <SubjectListItem />
-               <SubjectListItem />
-               <button className="w-full cursor-pointer rounded-lg border border-dashed border-black/10 py-2 text-black/20 transition-colors outline-none hover:border-emerald-400 hover:bg-emerald-400/10 hover:text-emerald-300 focus-visible:border-emerald-400 focus-visible:bg-emerald-400/10 focus-visible:text-emerald-300">
+               {subjects.map((s) => (
+                  <SubjectListItem key={s.id} subject={s} />
+               ))}
+               <button
+                  className="w-full cursor-pointer rounded-lg border border-dashed border-black/10 py-2 text-black/20 transition-colors outline-none hover:border-emerald-400 hover:bg-emerald-400/10 hover:text-emerald-300 focus-visible:border-emerald-400 focus-visible:bg-emerald-400/10 focus-visible:text-emerald-300"
+                  onClick={() => dispatch(addSubject())}
+               >
                   <p className="text-center">+ 과목 추가</p>
                </button>
             </div>
