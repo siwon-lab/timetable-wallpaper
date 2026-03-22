@@ -9,9 +9,16 @@ export default function TimetablePreview() {
    const subtitle2 = useSelector(
       (state: RootState) => state.timetable.subtitle2,
    );
+   const textColor = useSelector(
+      (state: RootState) => state.timetable.textColor,
+   );
+   const bgColor = useSelector((state: RootState) => state.timetable.bgColor);
    return (
-      <div className="flex flex-1 items-center justify-center">
-         <div className="h-[766.8px] w-[353.7px] rounded-4xl border-2 border-black/10">
+      <div className="flex flex-1 items-center justify-center bg-[#eee]">
+         <div
+            className="h-[766.8px] w-[353.7px] rounded-4xl border-2 border-black/10"
+            style={{ backgroundColor: bgColor, color: textColor }}
+         >
             <p>{title}</p>
             <p>{subtitle1}</p>
             <p>{subtitle2}</p>

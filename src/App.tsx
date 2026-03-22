@@ -15,7 +15,8 @@ const tabClass =
    'cursor-pointer rounded-lg py-2 text-black/20 outline-none hover:text-black/40 data-focus:bg-emerald-400/10 data-selected:font-semibold data-selected:text-emerald-400';
 // 'cursor-pointer rounded-lg py-2 text-black/20 outline-none hover:text-black/30 hover:bg-black/5 data-selected:bg-emerald-400/10 data-selected:font-semibold data-selected:text-emerald-400'
 // 'cursor-pointer rounded-lg py-2 text-black/20 outline-none hover:text-black/40 data-focus:bg-black/5 data-selected:bg-emerald-400/10 data-selected:font-semibold data-selected:text-emerald-400'
-const tabPanelClass = 'outline-none focus-visible:bg-emerald-400/20 flex-1 overflow-y-auto min-h-0';
+const tabPanelClass =
+   'outline-none focus-visible:bg-emerald-400/20 flex-1 overflow-y-auto min-h-0';
 
 function App() {
    return (
@@ -50,15 +51,24 @@ function App() {
                   </Tab>
                </TabList>
                <TabPanels className="flex w-75 flex-col border-r border-black/10">
-                     <TabPanel className={tabPanelClass}>
-                        <SubjectsTab />
-                     </TabPanel>
-                     <TabPanel className={tabPanelClass}>
-                        <DesignTab />
-                     </TabPanel>
-                     <TabPanel className={tabPanelClass}></TabPanel>
-                     <TabPanel className={tabPanelClass}></TabPanel>
-                  <div className="h-10 border-t border-black/10 flex-shrink-0"></div>
+                  <TabPanel className={tabPanelClass}>
+                     <SubjectsTab />
+                  </TabPanel>
+                  <TabPanel className={tabPanelClass}>
+                     <DesignTab />
+                  </TabPanel>
+                  <TabPanel className={tabPanelClass}></TabPanel>
+                  <TabPanel className={tabPanelClass}></TabPanel>
+                  <div className="flex-shrink-0 border-t border-black/10 px-6 pb-4 pt-2">
+                     <p className='text-emerald-400 font-semibold mb-1 text-center'>잠깐! 내보내기 전에 다 확인하셨나요?</p>
+                     <button className="w-full cursor-pointer rounded-lg bg-emerald-400 py-2 text-lg font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-300">
+                        <FontAwesomeIcon
+                           className="mr-2 text-xl"
+                           icon={faArrowUpFromBracket}
+                        />
+                        내보내기
+                     </button>
+                  </div>
                </TabPanels>
             </TabGroup>
             <TimetablePreview />

@@ -33,6 +33,9 @@ export default function SubjectListItem({ subject }: Props) {
             id="color"
             type="color"
             value={color}
+            onChange={(e) => {
+               dispatch(updateSubject({ id, name, color: e.target.value }));
+            }}
          />
          <button
             className="mr-0.5 flex h-4 w-4 cursor-pointer items-center justify-center rounded text-sm font-extralight text-black/20 transition-colors outline-none hover:bg-red-500/10 hover:text-red-500 focus-visible:bg-red-500/10 focus-visible:text-red-500"

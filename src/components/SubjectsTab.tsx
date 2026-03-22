@@ -22,7 +22,7 @@ export default function SubjectsTab() {
       <div className="p-4">
          <div className="flex flex-col">
             <p className="mb-4 text-sm font-semibold text-black/40">헤더</p>
-            <label className="mb-1 w-fit" htmlFor="title">
+            <label className="mb-1 w-fit font-medium" htmlFor="title">
                제목
             </label>
             <input
@@ -37,7 +37,7 @@ export default function SubjectsTab() {
             />
             <div className="flex gap-1">
                <div className="flex min-w-0 flex-1 flex-col">
-                  <label className="mb-1 w-fit" htmlFor="subtitle1">
+                  <label className="mb-1 w-fit font-medium" htmlFor="subtitle1">
                      부제목1
                   </label>
                   <input
@@ -52,7 +52,7 @@ export default function SubjectsTab() {
                   />
                </div>
                <div className="flex min-w-0 flex-1 flex-col">
-                  <label className="mb-1 w-fit" htmlFor="subtitle2">
+                  <label className="mb-1 w-fit font-medium" htmlFor="subtitle2">
                      부제목2
                   </label>
                   <input

@@ -6,7 +6,13 @@ import {
 
 const timetable = createSlice({
    name: 'timetable',
-   initialState: { title: '시간표', subtitle1: '1학년', subtitle2: '2026' },
+   initialState: {
+      title: '시간표',
+      subtitle1: '1학년',
+      subtitle2: '2026',
+      bgColor: '#ffffff',
+      textColor: '#000000',
+   },
    reducers: {
       setTitle: (state, action: PayloadAction<string>) => {
          state.title = action.payload;
@@ -17,10 +23,17 @@ const timetable = createSlice({
       setSubtitle2: (state, action: PayloadAction<string>) => {
          state.subtitle2 = action.payload;
       },
+      setBgColor: (state, action: PayloadAction<string>) => {
+         state.bgColor = action.payload;
+      },
+      setTextColor: (state, action: PayloadAction<string>) => {
+         state.textColor = action.payload;
+      },
    },
 });
 
-export const { setTitle, setSubtitle1, setSubtitle2 } = timetable.actions;
+export const { setTitle, setSubtitle1, setSubtitle2, setBgColor, setTextColor } =
+   timetable.actions;
 
 export interface Subject {
    id: number;
