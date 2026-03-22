@@ -8,11 +8,12 @@ import {
    faArrowUpFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react';
+import TimetablePreview from './components/TimeTablePreview';
 
 const tabClass =
-   'cursor-pointer rounded-lg py-2 text-black/20 outline-none hover:text-black/40 data-focus:bg-emerald-400/10 data-selected:font-semibold data-selected:text-emerald-400'
+   'cursor-pointer rounded-lg py-2 text-black/20 outline-none hover:text-black/40 data-focus:bg-emerald-400/10 data-selected:font-semibold data-selected:text-emerald-400';
 // 'cursor-pointer rounded-lg py-2 text-black/20 outline-none hover:text-black/30 hover:bg-black/5 data-selected:bg-emerald-400/10 data-selected:font-semibold data-selected:text-emerald-400'
-// 'cursor-pointer rounded-lg py-2 text-black/20 outline-none hover:text-black/40 data-focus:bg-black/5 data-[selected]:bg-emerald-400/10 data-selected:font-semibold data-selected:text-emerald-400'
+// 'cursor-pointer rounded-lg py-2 text-black/20 outline-none hover:text-black/40 data-focus:bg-black/5 data-selected:bg-emerald-400/10 data-selected:font-semibold data-selected:text-emerald-400'
 
 function App() {
    return (
@@ -46,16 +47,17 @@ function App() {
                      <p className="text-sm">내보내기</p>
                   </Tab>
                </TabList>
-               <TabPanels className="h-full w-75 border-r border-black/10">
-                  <TabPanel className="h-full outline-none data-focus:bg-emerald-400/20">
+               <TabPanels className="flex h-full w-75 flex-col border-r border-black/10">
+                  <TabPanel className="flex-1 overflow-y-auto outline-none focus-visible:bg-emerald-400/20">
                      <SubjectsTab />
                   </TabPanel>
                   <TabPanel></TabPanel>
                   <TabPanel></TabPanel>
                   <TabPanel></TabPanel>
+                  <div className="border-t border-black/10"></div>
                </TabPanels>
             </TabGroup>
-            <div className="flex-1"></div>
+            <TimetablePreview />
          </div>
       </div>
    );

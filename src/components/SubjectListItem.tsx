@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
+
 export default function SubjectListItem() {
    return (
       <div className="flex w-full items-center gap-2 rounded-lg border border-black/10 p-2 transition-colors focus-within:border-emerald-400 hover:border-emerald-400">
@@ -7,6 +10,7 @@ export default function SubjectListItem() {
          <input
             className="min-w-0 flex-1 rounded-lg border border-black/10 px-2 py-1 transition-colors outline-none hover:bg-black/5 focus:border-emerald-400 focus:bg-transparent"
             type="text"
+            autoComplete='off'
             value="수학"
          />
          <input
@@ -15,8 +19,8 @@ export default function SubjectListItem() {
             type="color"
             value="#ffdf20"
          />
-         <button className="mr-0.5 mb-1 cursor-pointer text-xl font-extralight text-black/20 hover:text-red-500 transition-colors">
-            ×
+         <button className="mr-0.5 flex h-4 w-4 cursor-pointer items-center justify-center rounded text-sm font-extralight text-black/20 transition-colors outline-none hover:bg-red-500/10 hover:text-red-500 focus-visible:bg-red-500/10 focus-visible:text-red-500">
+            <FontAwesomeIcon icon={faXmark} />
          </button>
       </div>
    );
