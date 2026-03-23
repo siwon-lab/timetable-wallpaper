@@ -14,10 +14,15 @@ export default function DesignTab() {
                색상 테마
             </p>
             <div className="mb-2 flex items-center">
-               <label className="mr-4 font-medium">배경 색상</label>
+               <label
+                  className="mr-4 cursor-pointer font-medium"
+                  htmlFor="bgColor"
+               >
+                  배경 색상
+               </label>
                <input
                   className="ml-auto h-[34px] cursor-pointer rounded-lg border border-black/10 px-0.5 outline-none hover:bg-black/5 focus:border-emerald-400 focus:bg-transparent"
-                  id="color"
+                  id="bgColor"
                   type="color"
                   value={bgColor}
                   onChange={(e) => {
@@ -26,10 +31,15 @@ export default function DesignTab() {
                />
             </div>
             <div className="flex items-center">
-               <label className="mr-4 font-medium">글자 색상</label>
+               <label
+                  className="mr-4 cursor-pointer font-medium"
+                  htmlFor="textColor"
+               >
+                  글자 색상
+               </label>
                <input
                   className="ml-auto h-[34px] cursor-pointer rounded-lg border border-black/10 px-0.5 outline-none hover:bg-black/5 focus:border-emerald-400 focus:bg-transparent"
-                  id="color"
+                  id="textColor"
                   type="color"
                   value={textColor}
                   onChange={(e) => {
@@ -37,6 +47,10 @@ export default function DesignTab() {
                   }}
                />
             </div>
+            {/* 같은 셀 병합 */}
+            {/* 시간대 시간 사용 */}
+            {/* 과목 색상 사용 */}
+            {/* 시간표 전체 테두리 사용 */}
          </div>
       </div>
    );

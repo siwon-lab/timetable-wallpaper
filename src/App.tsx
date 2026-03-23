@@ -1,6 +1,7 @@
 import './App.css';
 import SubjectsTab from './components/SubjectsTab';
 import DesignTab from './components/DesignTab';
+import DaysTab from './components/DaysTab';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
    faBookBookmark,
@@ -40,7 +41,7 @@ function App() {
                   </Tab>
                   <Tab className={tabClass}>
                      <FontAwesomeIcon className="text-xl" icon={faCalendar} />
-                     <p className="text-sm">요일</p>
+                     <p className="text-sm">시간</p>
                   </Tab>
                   <Tab className={tabClass}>
                      <FontAwesomeIcon
@@ -57,10 +58,14 @@ function App() {
                   <TabPanel className={tabPanelClass}>
                      <DesignTab />
                   </TabPanel>
+                  <TabPanel className={tabPanelClass}>
+                     <DaysTab />
+                  </TabPanel>
                   <TabPanel className={tabPanelClass}></TabPanel>
-                  <TabPanel className={tabPanelClass}></TabPanel>
-                  <div className="flex-shrink-0 border-t border-black/10 px-6 pb-4 pt-2">
-                     <p className='text-emerald-400 font-semibold mb-1 text-center'>잠깐! 내보내기 전에 다 확인하셨나요?</p>
+                  <div className="flex-shrink-0 border-t border-black/10 px-6 pt-2 pb-4">
+                     <p className="mb-1 text-center font-semibold text-emerald-400">
+                        잠깐! 내보내기 전에 다 확인하셨나요?
+                     </p>
                      <button className="w-full cursor-pointer rounded-lg bg-emerald-400 py-2 text-lg font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-300">
                         <FontAwesomeIcon
                            className="mr-2 text-xl"

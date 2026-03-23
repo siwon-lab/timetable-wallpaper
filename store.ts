@@ -32,8 +32,13 @@ const timetable = createSlice({
    },
 });
 
-export const { setTitle, setSubtitle1, setSubtitle2, setBgColor, setTextColor } =
-   timetable.actions;
+export const {
+   setTitle,
+   setSubtitle1,
+   setSubtitle2,
+   setBgColor,
+   setTextColor,
+} = timetable.actions;
 
 export interface Subject {
    id: number;
@@ -63,8 +68,49 @@ const subjects = createSlice({
 
 export const { addSubject, updateSubject, removeSubject } = subjects.actions;
 
+const days = createSlice({
+   name: 'days',
+   initialState: [
+      { day: '일', enabled: false },
+      { day: '월', enabled: true },
+      { day: '화', enabled: true },
+      { day: '수', enabled: true },
+      { day: '목', enabled: true },
+      { day: '금', enabled: true },
+      { day: '토', enabled: false },
+   ],
+   reducers: {
+      setDays: (state, action: PayloadAction<string>) => {
+         const day = state.find((d) => d.day === action.payload);
+         if (day) day.enabled = !day.enabled;
+      },
+   },
+});
+
+export const { setDays } = days.actions;
+
+const periods = createSlice({
+   name: 'periods',
+   initialState: [
+      { id: 0, name: '1교시', time: '8:40 ~ 9:30' },
+      { id: 1, name: '2교시', time: '9:40 ~ 10:30' },
+      { id: 2, name: '3교시', time: '10:40 ~ 11:30' },
+      { id: 3, name: '4교시', time: '11:40 ~ 12:30' },
+      { id: 4, name: '점심시간', time: '12:30 ~ 1:30' },
+      { id: 5, name: '5교시', time: '1:30 ~ 2:20' },
+      { id: 6, name: '6교시', time: '2:30 ~ 3:20' },
+      { id: 7, name: '7교시', time: '3:30 ~ 4:20' },
+   ],
+   reducers: {},
+});
+
 export const store = configureStore({
-   reducer: { timetable: timetable.reducer, subjects: subjects.reducer },
+   reducer: {
+      timetable: timetable.reducer,
+      subjects: subjects.reducer,
+      days: days.reducer,
+      periods: periods.reducer,
+   },
 });
 
 export type RootState = ReturnType<typeof store.getState>;

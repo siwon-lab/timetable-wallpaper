@@ -13,16 +13,35 @@ export default function TimetablePreview() {
       (state: RootState) => state.timetable.textColor,
    );
    const bgColor = useSelector((state: RootState) => state.timetable.bgColor);
+   const days = useSelector((state: RootState) => state.days);
    return (
       <div className="flex flex-1 items-center justify-center bg-[#eee]">
          <div
-            className="h-[766.8px] w-[353.7px] rounded-4xl border-2 border-black/10"
+            className="flex h-[766.8px] w-[353.7px] flex-col rounded-4xl border-2 border-black/10 px-6 pt-40"
             style={{ backgroundColor: bgColor, color: textColor }}
          >
-            <p>{title}</p>
-            <p>{subtitle1}</p>
-            <p>{subtitle2}</p>
-            <div></div>
+            <p className="text-4xl font-bold">{title}</p>
+            <p className="text-xl">{subtitle1}</p>
+            <p className="ml-auto text-xl">{subtitle2}</p>
+            <div
+               className="grid"
+               style={{
+                  gridTemplateColumns: `repeat(${days.filter((d) => d.enabled).length + 1}, minmax(0, 1fr))`,
+               }}
+            >
+               <div></div>
+               {days
+                  .filter((d) => d.enabled)
+                  .map((d) => (
+                     <div>{d.day}</div>
+                  ))}
+               <div>1</div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+            </div>
          </div>
       </div>
    );

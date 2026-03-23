@@ -22,7 +22,10 @@ export default function SubjectsTab() {
       <div className="p-4">
          <div className="flex flex-col">
             <p className="mb-4 text-sm font-semibold text-black/40">헤더</p>
-            <label className="mb-1 w-fit font-medium" htmlFor="title">
+            <label
+               className="mb-1 w-fit cursor-pointer font-medium"
+               htmlFor="title"
+            >
                제목
             </label>
             <input
@@ -37,7 +40,10 @@ export default function SubjectsTab() {
             />
             <div className="flex gap-1">
                <div className="flex min-w-0 flex-1 flex-col">
-                  <label className="mb-1 w-fit font-medium" htmlFor="subtitle1">
+                  <label
+                     className="mb-1 w-fit cursor-pointer font-medium"
+                     htmlFor="subtitle1"
+                  >
                      부제목1
                   </label>
                   <input
@@ -52,7 +58,10 @@ export default function SubjectsTab() {
                   />
                </div>
                <div className="flex min-w-0 flex-1 flex-col">
-                  <label className="mb-1 w-fit font-medium" htmlFor="subtitle2">
+                  <label
+                     className="mb-1 w-fit cursor-pointer font-medium"
+                     htmlFor="subtitle2"
+                  >
                      부제목2
                   </label>
                   <input
@@ -81,7 +90,7 @@ export default function SubjectsTab() {
                   className="w-full cursor-pointer rounded-lg border border-dashed border-black/10 py-2 text-black/20 transition-colors outline-none hover:border-emerald-400 hover:bg-emerald-400/10 hover:text-emerald-300 focus-visible:border-emerald-400 focus-visible:bg-emerald-400/10 focus-visible:text-emerald-300"
                   onClick={() => dispatch(addSubject())}
                >
-                  <p className="text-center">+ 과목 추가</p>
+                  <p className="text-center font-medium">+ 과목 추가</p>
                </button>
             </div>
          </div>
