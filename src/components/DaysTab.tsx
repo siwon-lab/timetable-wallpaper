@@ -1,6 +1,6 @@
 import { Switch } from '@headlessui/react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setDays, type RootState } from '../../store';
+import { addPeriod, setDays, type RootState } from '../../store';
 import PeriodListItem from './PeriodListItem';
 
 export default function DaysTab() {
@@ -45,12 +45,14 @@ export default function DaysTab() {
                시간대 설정
             </p>
             <div className="flex flex-col gap-2">
-               {periods.map((s) => (
-                  <PeriodListItem />
+               {periods.map((p, i) => (
+                  <PeriodListItem key={p.id} period={p} index={i + 1} />
                ))}
                <button
                   className="w-full cursor-pointer rounded-lg border border-dashed border-black/10 py-2 text-black/20 transition-colors outline-none hover:border-emerald-400 hover:bg-emerald-400/10 hover:text-emerald-300 focus-visible:border-emerald-400 focus-visible:bg-emerald-400/10 focus-visible:text-emerald-300"
-                  // onClick={() => dispatch(addSubject())}
+                  onClick={() => {
+                     dispatch(addPeriod());
+                  }}
                >
                   <p className="text-center font-medium">+ 시간대 추가</p>
                </button>

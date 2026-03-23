@@ -89,6 +89,12 @@ const days = createSlice({
 
 export const { setDays } = days.actions;
 
+export interface Period {
+   id: number;
+   name: string;
+   time: string;
+}
+
 const periods = createSlice({
    name: 'periods',
    initialState: [
@@ -100,9 +106,22 @@ const periods = createSlice({
       { id: 5, name: '5교시', time: '1:30 ~ 2:20' },
       { id: 6, name: '6교시', time: '2:30 ~ 3:20' },
       { id: 7, name: '7교시', time: '3:30 ~ 4:20' },
-   ],
-   reducers: {},
+   ] as Period[],
+   reducers: {
+      addPeriod: (state) => {
+         state.push({ id: Date.now(), name: '새 교시', time: '0:00 ~ 0:00' });
+      },
+      updatePeriod: (state, action: PayloadAction<Period>) => {
+         const idx = state.findIndex((s) => s.id === action.payload.id);
+         if (idx !== -1) state[idx] = action.payload;
+      },
+      removePeriod: (state, action: PayloadAction<number>) => {
+         return state.filter((s) => s.id !== action.payload);
+      },
+   },
 });
+
+export const { addPeriod, updatePeriod, removePeriod } = periods.actions;
 
 export const store = configureStore({
    reducer: {

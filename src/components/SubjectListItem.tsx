@@ -27,6 +27,7 @@ export default function SubjectListItem({ subject }: Props) {
             onChange={(e) =>
                dispatch(updateSubject({ id, name: e.target.value, color }))
             }
+            placeholder='과목명'
          />
          <input
             className="h-[34px] cursor-pointer rounded-lg border border-black/10 px-0.5 outline-none hover:bg-black/5 focus:border-emerald-400 focus:bg-transparent"
