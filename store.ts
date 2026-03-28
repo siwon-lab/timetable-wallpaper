@@ -4,6 +4,13 @@ import {
    type PayloadAction,
 } from '@reduxjs/toolkit';
 
+export interface Class {
+   id: number;
+   periodId: number;
+   day: string;
+   subjectId: number;
+}
+
 const timetable = createSlice({
    name: 'timetable',
    initialState: {
@@ -12,6 +19,7 @@ const timetable = createSlice({
       subtitle2: '2026',
       bgColor: '#ffffff',
       textColor: '#000000',
+      classes: [] as Class[],
    },
    reducers: {
       setTitle: (state, action: PayloadAction<string>) => {
@@ -28,6 +36,15 @@ const timetable = createSlice({
       },
       setTextColor: (state, action: PayloadAction<string>) => {
          state.textColor = action.payload;
+      },
+      setClass: (state, action: PayloadAction<Class>) => {
+         const idx = state.classes.findIndex(
+            (c) =>
+               c.periodId === action.payload.periodId &&
+               c.day === action.payload.day,
+         );
+         if (idx !== -1) state.classes[idx] = action.payload;
+         else state.classes.push({ ...action.payload, id: Date.now() });
       },
    },
 });
