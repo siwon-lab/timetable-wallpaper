@@ -17,6 +17,7 @@ export default function TimetablePreview() {
    const bgColor = useSelector((state: RootState) => state.timetable.bgColor);
    const days = useSelector((state: RootState) => state.days);
    const periods = useSelector((state: RootState) => state.periods);
+   const subjects = useSelector((state: RootState) => state.subjects);
 
    const [selectedCell, setSelectedCell] = useState<{
       periodId: number;
@@ -80,7 +81,7 @@ export default function TimetablePreview() {
                   className="w-80 rounded-lg bg-white p-6"
                   onClick={(e) => e.stopPropagation()}
                >
-                  <p className="text-xl font-semibold">
+                  <p className="mb-4 text-xl font-semibold">
                      {selectedCell?.day}{' '}
                      {
                         periods.find((p) => p.id === selectedCell?.periodId)
@@ -88,13 +89,38 @@ export default function TimetablePreview() {
                      }{' '}
                      편집
                   </p>
-                  <p className="mb-4 text-sm font-semibold text-black/40">
+                  <p className="mb-2 text-sm font-semibold text-black/40">
                      과목 선택
                   </p>
+                  <div className="mb-6 grid grid-cols-3 gap-2">
+                     <button className="cursor-pointer rounded-lg border border-black/10 py-2 text-lg font-semibold text-black/10">
+                        비움
+                     </button>
+                     {subjects.map((s) => (
+                        <button
+                           className="cursor-pointer rounded-lg py-2 text-lg font-semibold border"
+                           style={{ backgroundColor: s.color }}
+                        >
+                           <p className="text-center text-white">{s.name}</p>
+                        </button>
+                     ))}
+                  </div>
                   {/* <p className="mb-4 text-sm font-semibold text-black/40">
                      부가 사항(강의실, 선생님 등)
                   </p> */}
-                  
+                  <div className="flex gap-2">
+                     <button
+                        className="w-full cursor-pointer rounded-lg border border-black/10 py-2 text-lg font-semibold text-black/10 transition-colors hover:border-emerald-400 hover:text-emerald-400"
+                        onClick={() => {
+                           setIsDialogOpen(false);
+                        }}
+                     >
+                        취소
+                     </button>
+                     <button className="w-full cursor-pointer rounded-lg bg-emerald-400 py-2 text-lg font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-300">
+                        저장
+                     </button>
+                  </div>
                </div>
             </div>
          )}
